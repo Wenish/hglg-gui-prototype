@@ -5,6 +5,12 @@ export default {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      bold: ['AROneSansBold'],
+      semibold: ['AROneSansSemiBold'],
+      medium: ['AROneSansMedium'],
+      regular: ['AROneSansRegular'],
+    },
     extend: {},
   },
   plugins: [],

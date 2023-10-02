@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-slate-950 h-screen w-screen max-h-screen overflow-hidden text-white">
+    <div class="bg-slate-950 h-screen w-screen max-h-screen overflow-hidden text-white grid grid-rows-[auto_1fr]">
         <div class="grid justify-center py-2">
             <div class="flex gap-2">
                 <button
@@ -10,12 +10,14 @@
                 >{{ screenSize.name }}</button>
             </div>
         </div>
-        <div class="grid justify-center">
-            <main 
-                class="bg-white bg-cover bg-no-repeat"
-                :style="{ width: currentScreenSizeStyles.width, height: currentScreenSizeStyles.height}" >
-                <router-view></router-view>
-            </main>
+        <div class="grid items-center">
+            <div class="grid justify-center overflow-auto">
+                <main 
+                    class="bg-white"
+                    :style="{ width: currentScreenSizeStyles.width, height: currentScreenSizeStyles.height}" >
+                    <router-view></router-view>
+                </main>
+            </div>
         </div>
     </div>
 </template>
@@ -34,13 +36,13 @@ const screenSizes = ref([
         height: 1080
     },
     {
-        name: 'Small (4:3)',
-        width: 1024,
+        name: 'Small (16:9)',
+        width: 1366,
         height: 768
     },
     {
-        name: 'Small (16:9)',
-        width: 1366,
+        name: 'Small (4:3)',
+        width: 1024,
         height: 768
     }
 ])
@@ -61,8 +63,3 @@ const currentScreenSizeStyles = computed(() => {
     }
 })
 </script>
-<style scoped>
-main {
-    background-image: url(../assets/hglg-ingame.png)
-}
-</style>
