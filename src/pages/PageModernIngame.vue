@@ -20,7 +20,15 @@
             <div class="grid grid-cols-[1fr_1fr_1fr] max-w-6xl mx-auto p-2">
                 <div></div>
                 <div></div>
-                <div class="grid justify-end">
+                <div class="grid justify-end gap-2">
+                    <div class="text-sm text-right font-semibold">
+                        <div class="text-green-500 [text-shadow:_0_0_7px_rgb(0_0_0_/_90%)] drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]">AdronTech: 523</div>
+                        <div class="text-red-500 [text-shadow:_0_0_7px_rgb(0_0_0_/_90%)] drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]">UltimateSpinDash: 434</div>
+                        <div class="text-blue-500 [text-shadow:_0_0_7px_rgb(0_0_0_/_90%)] drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]">Wenish: 361</div>
+                        <div class="text-yellow-500 [text-shadow:_0_0_7px_rgb(0_0_0_/_90%)] drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]">akamatsu: 321</div>
+                        <div class="text-orange-500 [text-shadow:_0_0_7px_rgb(0_0_0_/_90%)] drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]">Atvus (Kai): 311</div>
+                        <div class="text-white-500 [text-shadow:_0_0_7px_rgb(0_0_0_/_90%)] drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]">Casjen: 295</div>
+                    </div>
                     <Minimap></Minimap>
                 </div>
             </div>
