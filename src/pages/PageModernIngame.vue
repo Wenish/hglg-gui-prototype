@@ -43,11 +43,15 @@
                         </button>
                     </div>
                     <div></div>
-                    <button class="group border border-gray-950/50 hover:border-gray-950/75 p-px rounded" @click="onSettingsClick">
-                        <div class="bg-gray-950/50 group-hover:bg-gray-950/75 rounded p-1 grid justify-center items-center">
-                            <IconSettings class="h-7 w-7"></IconSettings>
-                        </div>
-                    </button>
+                    <div>
+                        <!--
+                        <button class="group border border-gray-950/50 hover:border-gray-950/75 p-px rounded" @click="onSettingsClick">
+                            <div class="bg-gray-950/50 group-hover:bg-gray-950/75 rounded p-1 grid justify-center items-center">
+                                <IconSettings class="h-7 w-7"></IconSettings>
+                            </div>
+                        </button>
+                         -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -61,7 +65,18 @@
                     <div class="flex flex-col gap-1 px-1">
                         <button class="group border border-gray-950/50 hover:border-gray-950/75 p-px rounded" @click="onBuildClick">
                             <div class="bg-gray-950/50 group-hover:bg-gray-950/75 rounded p-1 grid justify-center items-center">
-                                <IconHammer class="h-7 w-7"></IconHammer>
+                                <IconHammer class="h-6 w-6"></IconHammer>
+                            </div>
+                        </button>
+                        <button class="group border border-gray-950/50 hover:border-gray-950/75 p-px rounded">
+                            <div class="bg-gray-950/50 group-hover:bg-gray-950/75 rounded p-1 grid justify-center items-center">
+                                <IconChart class="h-6 w-6"></IconChart>
+                            </div>
+                        </button>
+                        
+                        <button class="group border border-gray-950/50 hover:border-gray-950/75 p-px rounded" @click="onSettingsClick">
+                            <div class="bg-gray-950/50 group-hover:bg-gray-950/75 rounded p-1 grid justify-center items-center">
+                                <IconSettings class="h-6 w-6"></IconSettings>
                             </div>
                         </button>
                     </div>
@@ -87,6 +102,7 @@ import IconSettings from '../components/IconSettings.vue';
 import Minimap from '../components/Minimap.vue'
 import { useRouter } from 'vue-router';
 import IconHammer from '../components/IconHammer.vue';
+import IconChart from '../components/IconChart.vue';
 import IconStone from '../components/IconStone.vue';
 import IconWood from '../components/IconWood.vue';
 import IconPerson from '../components/IconPerson.vue';
