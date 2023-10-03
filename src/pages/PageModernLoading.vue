@@ -2,7 +2,7 @@
     <div class="h-full w-full image-wallpaper-cave bg-cover bg-center grid grid-rows-[1fr_1fr_1fr] relative">
         <div></div>
         <div></div>
-        <div class="inline-grid justify-center items-center">
+        <div class="inline-grid justify-center items-center opacity-75 select-none">
             <div>
                 <div class="border border-gray-800 p-px rounded w-52">
                     <div class="text-sm bg-gray-800 rounded text-center italic relative h-6">
