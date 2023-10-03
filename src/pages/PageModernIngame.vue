@@ -170,7 +170,8 @@
                             @click="onSettingsClick">
                             <div
                                 class="bg-gray-950/50 group-hover:bg-gray-950/75 rounded p-1 grid justify-center items-center">
-                                <IconSettings class="h-6 w-6"></IconSettings>
+                                <!-- <IconSettings class="h-6 w-6"></IconSettings> -->
+                                <IconExit class="h-6 w-6"></IconExit>
                             </div>
                         </button>
                     </div>
@@ -204,7 +205,7 @@
 </template>
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import IconSettings from '../components/IconSettings.vue';
+import IconExit from '../components/IconExit.vue';
 import Minimap from '../components/Minimap.vue'
 import { useRouter } from 'vue-router';
 import IconHammer from '../components/IconHammer.vue';
