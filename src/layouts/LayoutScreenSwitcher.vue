@@ -13,7 +13,7 @@
         <div class="grid items-center">
             <div class="grid justify-center overflow-auto">
                 <main 
-                    class="bg-white border-black border-[12px] rounded-md"
+                    class="bg-black border-black border-[12px] rounded-md"
                     :style="{ width: currentScreenSizeStyles.width, height: currentScreenSizeStyles.height}" >
                     <router-view></router-view>
                 </main>
