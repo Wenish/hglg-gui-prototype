@@ -5,45 +5,58 @@
             <div class="grid grid-cols-[1fr_auto_1fr] justify-center p-2 max-w-6xl mx-auto">
                 <div class="grid grid-cols-[1fr_auto]  justify-end items-center">
                     <div></div>
+                    <div class="flex gap-2">
+                    </div>
+                </div>
+                <div class="grid justify-center">
+                    <!--
+                    <div class="inline-grid bg-gray-950/50 py-1 rounded px-2 font-bold justify-center items-center text-lg select-none">{{ timerText }}</div>
+                    -->
+                </div>
+                <div class="grid grid-cols-[auto_1fr_auto] justify-end items-center">
                     <div class="px-2 flex gap-2">
+                    </div>
+                    <div class="flex justify-end px-2 gap-2">
                         <button class="inline-flex bg-gray-950/50 gap-2 p-1 rounded hover:bg-gray-950/75 select-none">
-                            <div class="flex items-center gap-0.5">
+                            <div class="flex items-center gap-1">
                                 <div class="text-sm font-semibold">{{ stoneCount }}</div>
                                 <div class="grid items-center">
                                     <IconStone class="w-4 h-4"></IconStone>
                                 </div>
                             </div>
-                            <div class="flex items-center gap-0.5">
+                            <div class="flex items-center gap-1">
                                 <div class="text-sm font-semibold">{{ woodCount }}</div>
                                 <div class="grid items-center">
                                     <IconWood class="w-4 h-4"></IconWood>
                                 </div>
                             </div>
                         </button>
-                    </div>
-                </div>
-                <div class="grid justify-center">
-                    <div class="inline-grid bg-gray-950/50 py-0.5 rounded px-2 font-bold justify-center items-center text-lg select-none">{{ timerText }}</div>
-                </div>
-                <div class="grid grid-cols-[auto_1fr_auto] justify-end items-center">
-                    <div class="px-2 flex gap-2">
+                        
                         <button class="inline-flex bg-gray-950/50 gap-2 p-1 rounded hover:bg-gray-950/75 select-none">
-                            <div class="flex items-center gap-0.5">
+                            <div class="flex items-center gap-1">
                                 <div class="text-sm font-semibold">{{ workerCount }}</div>
                                 <div class="grid items-center">
                                     <IconPerson class="w-4 h-4"></IconPerson>
                                 </div>
                             </div>
-                            <div class="flex items-center gap-0.5">
+                            <div class="flex items-center gap-1">
                                 <div class="text-sm font-semibold">{{ soldierCount }}</div>
                                 <div class="grid items-center">
                                     <IconRomanHelmet class="w-4 h-4"></IconRomanHelmet>
                                 </div>
                             </div>
                         </button>
+                        <button class="inline-flex bg-gray-950/50 gap-2 p-1 rounded hover:bg-gray-950/75 select-none">
+                            <div class="flex items-center gap-1">
+                                <div class="text-sm font-semibold">{{ houseCount }}</div>
+                                <div class="grid items-center">
+                                    <IconHouse class="w-4 h-4"></IconHouse>
+                                </div>
+                            </div>
+                        </button>
                     </div>
-                    <div></div>
                     <div>
+                        <div class="inline-grid bg-gray-950/50 py-1 rounded px-2 font-bold justify-center items-center text-lg select-none">{{ timerText }}</div>
                         <!--
                         <button class="group border border-gray-950/50 hover:border-gray-950/75 p-px rounded" @click="onSettingsClick">
                             <div class="bg-gray-950/50 group-hover:bg-gray-950/75 rounded p-1 grid justify-center items-center">
@@ -107,6 +120,7 @@ import IconStone from '../components/IconStone.vue';
 import IconWood from '../components/IconWood.vue';
 import IconPerson from '../components/IconPerson.vue';
 import IconRomanHelmet from '../components/IconRomanHelmet.vue';
+import IconHouse from '../components/IconHouse.vue';
 
 const router = useRouter()
 
@@ -156,6 +170,8 @@ const soldierUpdate = async () => {
     soldierUpdate()
 }
 soldierUpdate()
+
+const houseCount = ref(7)
 
 const onSettingsClick = () => {
     router.push('/modern/menu')
