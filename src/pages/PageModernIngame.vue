@@ -5,10 +5,10 @@
             <div class="grid grid-cols-[1fr_1fr_1fr] justify-center p-2 max-w-6xl mx-auto">
                 <div></div>
                 <div class="grid justify-center">
-                    <div class="inline-grid bg-black/50 py-0.5 px-2 font-bold justify-center items-center text-lg select-none">{{ timerText }}</div>
+                    <div class="inline-grid bg-gray-950/50 py-0.5 rounded px-2 font-bold justify-center items-center text-lg select-none">{{ timerText }}</div>
                 </div>
                 <div class="grid justify-end">
-                    <button class="bg-black/50 hover:bg-black/75 rounded-full p-1 grid justify-center items-center">
+                    <button class="bg-black/50 hover:bg-black/75 rounded-full p-1 grid justify-center items-center" @click="onSettingsClick">
                         <IconSettings class="h-7 w-7"></IconSettings>
                     </button>
                 </div>
@@ -21,7 +21,7 @@
                 <div></div>
                 <div></div>
                 <div class="grid justify-end gap-2">
-                    <div class="text-sm text-right font-semibold">
+                    <div class="text-sm text-right font-semibold select-none">
                         <div class="text-green-500 [text-shadow:_0_0_7px_rgb(0_0_0_/_90%)] drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]">AdronTech: 523</div>
                         <div class="text-red-500 [text-shadow:_0_0_7px_rgb(0_0_0_/_90%)] drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]">UltimateSpinDash: 434</div>
                         <div class="text-blue-500 [text-shadow:_0_0_7px_rgb(0_0_0_/_90%)] drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]">Wenish: 361</div>
@@ -39,6 +39,13 @@
 import { ref, computed } from 'vue'
 import IconSettings from '../components/IconSettings.vue';
 import Minimap from '../components/Minimap.vue'
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
+
+const onSettingsClick = () => {
+    router.push('/modern/menu')
+}
 
 const timer = ref(0)
 const timerMinutes = computed(() => {
