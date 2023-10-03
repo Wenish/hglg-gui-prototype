@@ -52,8 +52,8 @@ const setCurrentScreenSize = (value: { width: number, height: number}) => {
 }
 
 const currentScreenSize = ref({
-    width: 1920,
-    height: 1080
+    width: 1366,
+    height: 768
 })
 
 const currentScreenSizeStyles = computed(() => {
