@@ -8,13 +8,13 @@
                     <div class="px-2 flex gap-2">
                         <button class="inline-flex bg-gray-950/50 gap-2 p-1 rounded hover:bg-gray-950/75 select-none">
                             <div class="flex items-center gap-0.5">
-                                <div class="text-sm font-semibold">23</div>
+                                <div class="text-sm font-semibold">{{ stoneCount }}</div>
                                 <div class="grid items-center">
                                     <IconStone class="w-4 h-4"></IconStone>
                                 </div>
                             </div>
                             <div class="flex items-center gap-0.5">
-                                <div class="text-sm font-semibold">17</div>
+                                <div class="text-sm font-semibold">{{ woodCount }}</div>
                                 <div class="grid items-center">
                                     <IconWood class="w-4 h-4"></IconWood>
                                 </div>
@@ -29,13 +29,13 @@
                     <div class="px-2 flex gap-2">
                         <button class="inline-flex bg-gray-950/50 gap-2 p-1 rounded hover:bg-gray-950/75 select-none">
                             <div class="flex items-center gap-0.5">
-                                <div class="text-sm font-semibold">167</div>
+                                <div class="text-sm font-semibold">{{ workerCount }}</div>
                                 <div class="grid items-center">
                                     <IconPerson class="w-4 h-4"></IconPerson>
                                 </div>
                             </div>
                             <div class="flex items-center gap-0.5">
-                                <div class="text-sm font-semibold">42</div>
+                                <div class="text-sm font-semibold">{{ soldierCount }}</div>
                                 <div class="grid items-center">
                                     <IconRomanHelmet class="w-4 h-4"></IconRomanHelmet>
                                 </div>
@@ -94,6 +94,53 @@ import IconRomanHelmet from '../components/IconRomanHelmet.vue';
 
 const router = useRouter()
 
+const stoneCount = ref(23)
+const stoneUpdate = async () => {
+    const newValue = stoneCount.value + randomIntFromInterval(1, 6) - 3
+    stoneCount.value = newValue
+    if (stoneCount.value < 0) {
+        stoneCount.value = 0
+    }
+    await sleep(randomIntFromInterval(1500, 4000))
+    stoneUpdate()
+}
+stoneUpdate()
+const woodCount = ref(17)
+const woodUpdate = async () => {
+    const newValue = woodCount.value + randomIntFromInterval(1, 6) - 3
+    woodCount.value = newValue
+    if (woodCount.value < 0) {
+        woodCount.value = 0
+    }
+    await sleep(randomIntFromInterval(1500, 4000))
+    woodUpdate()
+}
+woodUpdate()
+
+const workerCount = ref(167)
+const workerUpdate = async () => {
+    const newValue = workerCount.value + randomIntFromInterval(0, 3) - 1
+    workerCount.value = newValue
+    if (workerCount.value < 0) {
+        workerCount.value = 0
+    }
+    await sleep(randomIntFromInterval(4000, 8000))
+    workerUpdate()
+}
+workerUpdate()
+
+const soldierCount = ref(42)
+const soldierUpdate = async () => {
+    const newValue = soldierCount.value + randomIntFromInterval(0, 2) - 1
+    soldierCount.value = newValue
+    if (soldierCount.value < 0) {
+        soldierCount.value = 0
+    }
+    await sleep(randomIntFromInterval(8000, 12000))
+    soldierUpdate()
+}
+soldierUpdate()
+
 const onSettingsClick = () => {
     router.push('/modern/menu')
 }
@@ -114,7 +161,6 @@ const timerText = computed(() => {
     return str_pad_left(timerMinutes.value.toString(), '0', 2) + ':' + str_pad_left(timerSeconds.value.toString(), '0', 2);
 })
 
-const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 const timerTick = async () => {
     timer.value++
     await sleep(1000)
@@ -125,6 +171,12 @@ timerTick()
 
 function str_pad_left(string: string, pad: string, length: number) {
   return (new Array(length + 1).join(pad) + string).slice(-length);
+}
+
+function sleep (ms: number){ return new Promise((r) => setTimeout(r, ms))};
+
+function randomIntFromInterval(min: number, max: number) { // min and max included 
+  return Math.floor(Math.random() * (max - min + 1) + min)
 }
 </script>
 <style scoped>
