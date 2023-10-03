@@ -14,8 +14,9 @@
                 <div class="mt-10 flex flex-col items-center justify-center gap-6">
                     <router-link to="/modern/menu"
                         class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                        Modern
+                        for modern style prototype touch me
                     </router-link>
+                    <!--
                     <router-link to="/classic/menu"
                         class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         Classic
@@ -25,6 +26,7 @@
                         class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         Alternative
                     </router-link>
+                     -->
                 </div>
             </div>
         </div>
