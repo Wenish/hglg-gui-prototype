@@ -3,7 +3,8 @@
         <div></div>
         <div></div>
         <div class="inline-grid justify-center items-center select-none">
-            <div>
+            <div class="inline-flex flex-col items-center gap-2">
+                <p class="text-center">{{ currentSaying }}</p>
                 <div class="border border-gray-800/70 p-px rounded w-52">
                     <div class="text-sm bg-gray-800/70 rounded text-center italic relative h-6">
                         <div class="absolute z-10 h-full flex justify-center items-center w-full">{{ loadText }}</div>
@@ -43,6 +44,20 @@ const showGenerateMapText = async () => {
     showLoadingText()
 }
 
+const sayings = ref([
+    'A plant a day keeps the bad land away.',
+    'Smile, happy looks good on you.',
+    'Start each day with a grateful heart.',
+    'It’s a good day for a good day.'
+])
+
+const currentSaying = ref('')
+
+const setRandomSaying = () => {
+    currentSaying.value = sayings.value[randomIntFromInterval(0, sayings.value.length - 1)]
+}
+
+setRandomSaying()
 
 const progress = ref(0)
 
@@ -76,9 +91,12 @@ const load = async () => {
     router.push('/modern/ingame')
 }
 
-const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 load()
+function sleep (ms: number){ return new Promise((r) => setTimeout(r, ms))};
+function randomIntFromInterval(min: number, max: number) { // min and max included 
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
 </script>
 <style scoped>
 .image-wallpaper-cave {
