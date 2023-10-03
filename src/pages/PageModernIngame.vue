@@ -17,40 +17,49 @@
                     <div class="px-2 flex gap-2">
                     </div>
                     <div class="flex justify-end px-2 gap-2">
-                        <button class="inline-flex bg-gray-950/50 gap-2 p-1 rounded hover:bg-gray-950/75 select-none">
-                            <div class="flex items-center gap-1">
-                                <div class="text-sm font-semibold">{{ stoneCount }}</div>
-                                <div class="grid items-center">
-                                    <IconStone class="w-4 h-4"></IconStone>
+                        <button class="group rounded select-none border p-px border-gray-950/50">
+                            <div class="inline-flex bg-gray-950/50 gap-2 p-1 group-hover:bg-gray-950/75 rounded">
+                                <div class="flex items-center gap-1">
+                                    <div class="text-sm font-semibold">{{ stoneCount }}</div>
+                                    <div class="grid items-center">
+                                        <IconStone class="w-4 h-4"></IconStone>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="flex items-center gap-1">
-                                <div class="text-sm font-semibold">{{ woodCount }}</div>
-                                <div class="grid items-center">
-                                    <IconWood class="w-4 h-4"></IconWood>
+                                <div class="flex items-center gap-1">
+                                    <div class="text-sm font-semibold">{{ woodCount }}</div>
+                                    <div class="grid items-center">
+                                        <IconWood class="w-4 h-4"></IconWood>
+                                    </div>
                                 </div>
                             </div>
                         </button>
+
                         
-                        <button class="inline-flex bg-gray-950/50 gap-2 p-1 rounded hover:bg-gray-950/75 select-none">
-                            <div class="flex items-center gap-1">
-                                <div class="text-sm font-semibold">{{ workerCount }}</div>
-                                <div class="grid items-center">
-                                    <IconPerson class="w-4 h-4"></IconPerson>
+                        <button class="group rounded select-none border p-px border-gray-950/50">
+                            <div class="inline-flex bg-gray-950/50 gap-2 p-1 group-hover:bg-gray-950/75 rounded">
+                                <div class="flex items-center gap-1">
+                                    <div class="text-sm font-semibold">{{ workerCount }}</div>
+                                    <div class="grid items-center">
+                                        <IconPerson class="w-4 h-4"></IconPerson>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="flex items-center gap-1">
-                                <div class="text-sm font-semibold">{{ soldierCount }}</div>
-                                <div class="grid items-center">
-                                    <IconRomanHelmet class="w-4 h-4"></IconRomanHelmet>
+                                <div class="flex items-center gap-1">
+                                    <div class="text-sm font-semibold">{{ soldierCount }}</div>
+                                    <div class="grid items-center">
+                                        <IconRomanHelmet class="w-4 h-4"></IconRomanHelmet>
+                                    </div>
                                 </div>
                             </div>
                         </button>
-                        <button class="inline-flex bg-gray-950/50 gap-2 p-1 rounded hover:bg-gray-950/75 select-none">
-                            <div class="flex items-center gap-1">
-                                <div class="text-sm font-semibold">{{ houseCount }}</div>
-                                <div class="grid items-center">
-                                    <IconHouse class="w-4 h-4"></IconHouse>
+
+                        
+                        <button class="group rounded select-none border p-px border-gray-950/50">
+                            <div class="inline-flex bg-gray-950/50 gap-2 p-1 group-hover:bg-gray-950/75 rounded">
+                                <div class="flex items-center gap-1">
+                                    <div class="text-sm font-semibold">{{ houseCount }}</div>
+                                    <div class="grid items-center">
+                                        <IconHouse class="w-4 h-4"></IconHouse>
+                                    </div>
                                 </div>
                             </div>
                         </button>
