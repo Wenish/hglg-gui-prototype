@@ -218,9 +218,9 @@ import IconCross from '../components/IconCross.vue';
 
 const router = useRouter()
 
-const isPopupOpen = ref(true)
+const isPopupOpen = ref(false)
 
-const popupContentType = ref<'Ressources' | 'Population' | 'Buildings' | 'Statistics'>('Buildings')
+const popupContentType = ref<'Ressources' | 'Population' | 'Buildings' | 'Statistics'>('Ressources')
 
 const stoneCount = ref(23)
 const stoneUpdate = async () => {
