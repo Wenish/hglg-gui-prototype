@@ -2,7 +2,7 @@
     <div class="h-full w-full image-wallpaper-cave bg-cover bg-center grid justify-center relative">
         <div class="p-8 flex flex-col gap-2">
 
-            <img src="../assets/ColoniaPrimaTitel.png" class="w-full max-w-6xl py-8 opacity-50 blur-[1px]" />
+            <img src="../assets/ColoniaPrimaTitel.png" class="w-full max-w-7xl py-8 opacity-50 blur-[1px]" />
             <div class="flex flex-col gap-2">
                 <router-link
                     to="/modern/loading"

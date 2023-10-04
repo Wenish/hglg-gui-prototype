@@ -2,7 +2,7 @@
     <div class="ingame-image h-full w-full bg-cover bg-center bg-no-repeat relative">
         <!-- Top Bar -->
         <div class="absolute w-full">
-            <div class="grid grid-cols-[1fr_auto_1fr] justify-center p-2 max-w-6xl mx-auto">
+            <div class="grid grid-cols-[1fr_auto_1fr] justify-center p-2 max-w-7xl mx-auto">
                 <div class="grid grid-cols-[1fr_auto]  justify-end items-center">
                     <div></div>
                     <div class="flex gap-2">
@@ -78,7 +78,7 @@
                     </div>
                 </div>
             </div>
-            <div class="grid grid-cols-[1fr_auto] justify-center p-2 max-w-6xl mx-auto" v-if="isPopupOpen">
+            <div class="grid grid-cols-[1fr_auto] justify-center p-2 max-w-7xl mx-auto" v-if="isPopupOpen">
                 <div></div>
                 <div class="bg-gray-950/50 p-2 rounded grid gap-2">
                     <div class="flex justify-between gap-2 items-center">
@@ -146,7 +146,7 @@
 
         <!-- Bottom Bar -->
         <div class="absolute bottom-0 w-full">
-            <div class="grid grid-cols-[1fr_1fr_auto_auto] max-w-6xl mx-auto p-2">
+            <div class="grid grid-cols-[1fr_1fr_auto_auto] max-w-7xl mx-auto p-2">
                 <div></div>
                 <div></div>
                 <div class="inline-grid items-end">
