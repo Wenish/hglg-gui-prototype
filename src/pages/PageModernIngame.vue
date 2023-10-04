@@ -13,10 +13,10 @@
                     <div class="inline-grid bg-gray-950/50 py-1 rounded px-2 font-bold justify-center items-center text-lg select-none">{{ timerText }}</div>
                     -->
                 </div>
-                <div class="grid grid-cols-[auto_1fr_auto] justify-end items-center">
+                <div class="grid grid-cols-[auto_1fr_auto] justify-end items-center gap-1">
                     <div class="px-2 flex gap-2">
                     </div>
-                    <div class="flex justify-end px-2 gap-2">
+                    <div class="flex justify-end gap-1">
                         <button class="group rounded select-none border p-px border-gray-950/50" @click="onRessourcesClick">
                             <div class="inline-flex bg-gray-950/50 gap-2 p-1 group-hover:bg-gray-950/75 rounded">
                                 <div class="flex items-center gap-1">
@@ -89,53 +89,53 @@
                             </button>
                         </div>
                     </div>
-                    <div class="max-h-72 overflow-auto popup-content p-2">
+                    <div class="max-h-72 overflow-y-scroll custom-scroll pr-1">
                         <div v-if="popupContentType == 'Statistics'">
                             <p class="w-60">Imagine some fancy statistics about the game here.</p>
                         </div>
                         <div v-if="popupContentType == 'Ressources'" class="flex flex-col divide-y">
                             <div v-for="ressource in ressources" :key="ressource.name"
-                                class="flex justify-between px-2 py-1 text-sm font-semibold">
+                                class="flex justify-between px-2 py-1 text-sm font-semibold gap-2">
                                 <div>{{ ressource.name }}</div>
                                 <div>{{ ressource.count }}</div>
                             </div>
                         </div>
                         <div v-if="popupContentType == 'Population'" class="flex flex-col divide-y">
                             <div v-for="item in population" :key="item.name"
-                                class="flex justify-between px-2 py-1 text-sm font-semibold">
+                                class="flex justify-between px-2 py-1 text-sm font-semibold gap-2">
                                 <div>{{ item.name }}</div>
                                 <div>{{ item.count }}</div>
                             </div>
                         </div>
-                        <div v-if="popupContentType == 'Buildings'" class="grid gap-2">
+                        <div v-if="popupContentType == 'Buildings'" class="grid gap-1">
                             <div>
                                 <div class="pb-1">Village</div>
-                                <div class="grid grid-cols-4 gap-2">
-                                    <div class="w-10 h-10 bg-gray-800/50 hover:bg-gray-800/75 cursor-pointer grid justify-center items-center"
+                                <div class="grid grid-cols-4 gap-1">
+                                    <button class="w-10 h-10 rounded bg-gray-800/50 hover:bg-gray-800/75 cursor-pointer grid justify-center items-center"
                                         v-for="building in buildings.filter(item => item.category == 'Village')"
                                         :key="building.name">
                                         <div class="font-semibold">{{ building.count }}</div>
-                                    </div>
+                                    </button>
                                 </div>
                             </div>
                             <div>
                                 <div class="pb-1">Production</div>
-                                <div class="grid grid-cols-4 gap-2">
-                                    <div class="w-10 h-10 bg-gray-800/50 hover:bg-gray-800/75 cursor-pointer grid justify-center items-center"
+                                <div class="grid grid-cols-4 gap-1">
+                                    <button class="w-10 h-10 rounded bg-gray-800/50 hover:bg-gray-800/75 cursor-pointer grid justify-center items-center"
                                         v-for="building in buildings.filter(item => item.category == 'Production')"
                                         :key="building.name">
                                         <div class="font-semibold">{{ building.count }}</div>
-                                    </div>
+                                    </button>
                                 </div>
                             </div>
                             <div>
                                 <div class="pb-1">Military</div>
-                                <div class="grid grid-cols-4 gap-2">
-                                    <div class="w-10 h-10 bg-gray-800/50 hover:bg-gray-800/75 cursor-pointer grid justify-center items-center"
+                                <div class="grid grid-cols-4 gap-1">
+                                    <button class="w-10 h-10 rounded bg-gray-800/50 hover:bg-gray-800/75 cursor-pointer grid justify-center items-center"
                                         v-for="building in buildings.filter(item => item.category == 'Military')"
                                         :key="building.name">
                                         <div class="font-semibold">{{ building.count }}</div>
-                                    </div>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -146,9 +146,23 @@
 
         <!-- Bottom Bar -->
         <div class="absolute bottom-0 w-full">
-            <div class="grid grid-cols-[1fr_1fr_auto_auto] max-w-7xl mx-auto p-2">
+            <div class="grid grid-cols-[1fr_auto_auto_auto] max-w-7xl mx-auto p-2">
                 <div></div>
-                <div></div>
+                <!-- Chat Window -->
+                <div class="inline-grid items-end">
+                    <div v-if="isChatVisible" class="inline-flex bg-gray-950/50 flex-col justify-end p-2 w-80 max-h-40 gap-1 rounded">
+                        <div class="overflow-auto custom-scroll flex flex-col-reverse">
+                            <div v-for="chatMessage in chatMessages" class="text-sm break-words"><span class="[text-shadow:_0_0_7px_rgb(0_0_0_/_90%)] font-semibold" :class="[chatMessage.color]">{{ chatMessage.name }}</span><span class="pr-1">:</span><span>{{ chatMessage.msg }}</span></div>
+                        </div>
+                        <div>
+                            <div class="border border-gray-950/50 p-px rounded focus-within:border-gray-950/75">
+                                <input v-model="newChatMessage" @keyup.enter="onChatMessageSend" class="bg-gray-950/25 rounded border w-full border-gray-950/50 focus-visible:border-gray-950/75 focus-visible:bg-gray-950/50 outline-none px-2 hover:bg-gray-950/50" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
                 <div class="inline-grid items-end">
                     <div class="flex flex-col gap-1 px-1">
                         <button class="group border border-gray-950/50 hover:border-gray-950/75 p-px rounded"
@@ -156,6 +170,13 @@
                             <div
                                 class="bg-gray-950/50 group-hover:bg-gray-950/75 rounded p-1 grid justify-center items-center">
                                 <IconHammer class="h-6 w-6"></IconHammer>
+                            </div>
+                        </button>
+                        <button class="group border border-gray-950/50 hover:border-gray-950/75 p-px rounded"
+                            @click="isChatVisible = !isChatVisible">
+                            <div
+                                class="bg-gray-950/50 group-hover:bg-gray-950/75 rounded p-1 grid justify-center items-center">
+                                <IconChat class="h-6 w-6"></IconChat>
                             </div>
                         </button>
                         <button class="group border border-gray-950/50 hover:border-gray-950/75 p-px rounded"
@@ -179,22 +200,22 @@
                 <div class="grid justify-end gap-2">
                     <div class="text-sm text-right font-semibold select-none">
                         <div
-                            class="text-green-500 [text-shadow:_0_0_7px_rgb(0_0_0_/_90%)] drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]">
+                            class="text-green-500 [text-shadow:_0_0_7px_rgb(0_0_0_/_90%)] drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)] font-semibold">
                             AdronTech: 523</div>
                         <div
-                            class="text-red-500 [text-shadow:_0_0_7px_rgb(0_0_0_/_90%)] drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]">
+                            class="text-red-500 [text-shadow:_0_0_7px_rgb(0_0_0_/_90%)] drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)] font-semibold">
                             UltimateSpinDash: 434</div>
                         <div
-                            class="text-blue-500 [text-shadow:_0_0_7px_rgb(0_0_0_/_90%)] drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]">
+                            class="text-blue-500 [text-shadow:_0_0_7px_rgb(0_0_0_/_90%)] drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)] font-semibold">
                             Wenish: 361</div>
                         <div
-                            class="text-yellow-500 [text-shadow:_0_0_7px_rgb(0_0_0_/_90%)] drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]">
+                            class="text-yellow-500 [text-shadow:_0_0_7px_rgb(0_0_0_/_90%)] drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)] font-semibold">
                             akamatsu: 321</div>
                         <div
-                            class="text-orange-500 [text-shadow:_0_0_7px_rgb(0_0_0_/_90%)] drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]">
+                            class="text-orange-500 [text-shadow:_0_0_7px_rgb(0_0_0_/_90%)] drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)] font-semibold">
                             Atvus (Kai): 311</div>
                         <div
-                            class="text-white-500 [text-shadow:_0_0_7px_rgb(0_0_0_/_90%)] drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]">
+                            class="text-white-500 [text-shadow:_0_0_7px_rgb(0_0_0_/_90%)] drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)] font-semibold">
                             Casjen: 295</div>
                     </div>
                     <Minimap></Minimap>
@@ -216,12 +237,91 @@ import IconPerson from '../components/IconPerson.vue';
 import IconRomanHelmet from '../components/IconRomanHelmet.vue';
 import IconHouse from '../components/IconHouse.vue';
 import IconCross from '../components/IconCross.vue';
+import IconChat from '../components/IconChat.vue';
 
 const router = useRouter()
 
 const isPopupOpen = ref(false)
+const isChatVisible = ref(false)
+
+const newChatMessage = ref('')
+
+const onChatMessageSend = () => {
+    const randomUser = users.value[randomIntFromInterval(0, users.value.length - 1)]
+    chatMessages.value.unshift({
+        color: randomUser.color,
+        name: randomUser.name,
+        msg: newChatMessage.value
+    })
+    newChatMessage.value = ''
+}
 
 const popupContentType = ref<'Ressources' | 'Population' | 'Buildings' | 'Statistics'>('Ressources')
+
+const users = ref([
+    {
+        color: 'text-yellow-500',
+        name: 'akamatsu',
+    },
+    {
+        color: 'text-red-500',
+        name: 'UltimateSpinDash',
+    },
+    {
+        color: 'text-white-500',
+        name: 'Casjen',
+    },
+    {
+        color: 'text-green-500',
+        name: 'AdronTech',
+    },
+    {
+        color: 'text-orange-500',
+        name: 'Atvus (Kai)',
+    },
+    {
+        color: 'text-blue-500',
+        name: 'Wenish',
+    }
+])
+
+const chatMessages = ref([
+    {
+        color: 'text-yellow-500',
+        name: 'akamatsu',
+        msg: 'naah'
+    },
+    {
+        color: 'text-red-500',
+        name: 'UltimateSpinDash',
+        msg: 'Did someone else hear the rat under the box?'
+    },
+    {
+        color: 'text-white-500',
+        name: 'Casjen',
+        msg: 'What about me Atvus?'
+    },
+    {
+        color: 'text-green-500',
+        name: 'AdronTech',
+        msg: '#blessed'
+    },
+    {
+        color: 'text-orange-500',
+        name: 'Atvus (Kai)',
+        msg: 'I have to make more points.'
+    },
+    {
+        color: 'text-orange-500',
+        name: 'Atvus (Kai)',
+        msg: 'Hello.'
+    },
+    {
+        color: 'text-blue-500',
+        name: 'Wenish',
+        msg: 'Hey!'
+    }
+])
 
 const stoneCount = ref(23)
 const stoneUpdate = async () => {
@@ -508,14 +608,14 @@ function randomIntFromInterval(min: number, max: number) { // min and max includ
     background-image: url(../assets/pop-ingame.png)
 }
 
-.popup-content::-webkit-scrollbar {
+.custom-scroll::-webkit-scrollbar {
     @apply h-2 w-2 !important;
 }
 
-.popup-content::-webkit-scrollbar-track {
-    @apply bg-slate-950/25;
+.custom-scroll::-webkit-scrollbar-track {
+    @apply bg-slate-950/25 rounded;
 }
 
-.popup-content::-webkit-scrollbar-thumb {
-    @apply bg-slate-950/75 hover:bg-slate-950 rounded-lg;
+.custom-scroll::-webkit-scrollbar-thumb {
+    @apply bg-slate-950/75 hover:bg-slate-950 rounded;
 }</style>
